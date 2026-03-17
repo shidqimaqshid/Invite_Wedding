@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "tsx server.ts",
     "build": "vite build && npm run build:server",
-    "build:server": "esbuild server.ts --platform=node --bundle --outfile=dist/server.cjs --external:better-sqlite3 --external:bcryptjs --external:express --external:jsonwebtoken --external:cors --external:vite",
+    "build:server": "esbuild server.ts --platform=node --bundle --outfile=dist/server.cjs --external:mysql2 --external:bcryptjs --external:express --external:jsonwebtoken --external:cors --external:vite",
     "start": "node dist/server.cjs",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "migrate": "tsx server/migrations/migrate.ts"
   },
   "dependencies": {
     "@google/genai": "^1.29.0",
@@ -27,6 +28,7 @@
     "localforage": "^1.10.0",
     "lucide-react": "^0.546.0",
     "motion": "^12.23.24",
+    "mysql2": "^3.20.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.13.1",
